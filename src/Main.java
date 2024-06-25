@@ -41,6 +41,8 @@ public class Main {
 
         int classificacao = (int) (notaMedia/2);
 
+
+
         System.out.println("Classificação: " + classificacao);
 
     }
