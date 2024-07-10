@@ -1,4 +1,4 @@
-package Curso04.Exercicios04.Exercicio02;
+package Curso04.Exercicios04.Exercicio02e03;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
