@@ -1,0 +1,26 @@
+[
+  {
+    "Nome": "Chuck",
+    "AnoDeLancamento": 2007,
+    "IncluidoNoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalDeAvaliacoes": 0,
+    "DuracaoEmMinutos": 1
+  },
+  {
+    "Nome": "House",
+    "AnoDeLancamento": 2004,
+    "IncluidoNoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalDeAvaliacoes": 0,
+    "DuracaoEmMinutos": 44
+  },
+  {
+    "Nome": "Stranger Things",
+    "AnoDeLancamento": 2016,
+    "IncluidoNoPlano": false,
+    "SomaDasAvaliacoes": 0.0,
+    "TotalDeAvaliacoes": 0,
+    "DuracaoEmMinutos": 51
+  }
+]
