@@ -1,4 +1,4 @@
-package Curso03.Exercicio04.Exercicio02;
+package Curso03.Exercicio04.Exercicio02e03;
 
 import java.util.Collections;
 import java.util.LinkedList;

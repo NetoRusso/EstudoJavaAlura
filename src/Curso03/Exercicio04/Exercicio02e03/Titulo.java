@@ -1,4 +1,4 @@
-package Curso03.Exercicio04.Exercicio02;
+package Curso03.Exercicio04.Exercicio02e03;
 
 public class Titulo implements Comparable<Titulo> {
     private String nome;

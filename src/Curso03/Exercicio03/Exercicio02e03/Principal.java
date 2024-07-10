@@ -1,4 +1,4 @@
-package Curso03.Exercicio03.Exercicio02;
+package Curso03.Exercicio03.Exercicio02e03;
 
 public class Principal {
     public static void main(String[] args) {
