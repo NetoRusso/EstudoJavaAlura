@@ -1,12 +1,37 @@
 package Curso02.br.com.alura.screenmatch.modelos;
 
-public class Titulo {
+import com.google.gson.annotations.SerializedName;
+
+public class Titulo implements Comparable<Titulo> {
     private String nome;
     private int anoDeLancamento;
     private boolean incluidoNoPlano;
     private double somaDasAvaliacoes;
     private int totalDeAvaliacoes;
     private int duracaoEmMinutos;
+
+    public Titulo(String nome, int anoDeLancamento) {
+        this.nome = nome;
+        this.anoDeLancamento = anoDeLancamento;
+    }
+
+    public Titulo(TitulosOMDb tituloOMDb) {
+        this.nome = tituloOMDb.title();
+
+        if(tituloOMDb.year().length() > 4){
+            try {
+                this.anoDeLancamento = Integer.valueOf(tituloOMDb.year().substring(0, 4));
+            }catch (NumberFormatException e){
+                e.printStackTrace();
+            }catch (ErroDeConversaoDeAnoException e) {
+                throw new ErroDeConversaoDeAnoException("Não conseguiu converter o ano de lançamento, o ano tem mais de 04 dígitos");
+            }
+        }
+
+        String [] tempo = tituloOMDb.runtime().split(" ");
+
+        this.duracaoEmMinutos = Integer.parseInt(tempo[0]);
+    }
 
 
     //getters
@@ -37,13 +62,6 @@ public class Titulo {
 
     //Setters
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setAnoDeLancamento(int anoDeLancamento) {
-        this.anoDeLancamento = anoDeLancamento;
-    }
 
     public void setIncluidoNoPlano(boolean incluidoNoPlano) {
         this.incluidoNoPlano = incluidoNoPlano;
@@ -77,8 +95,19 @@ public class Titulo {
         totalDeAvaliacoes++;
     }
 
-public double pegaAMedia() {
+    public double pegaAMedia() {
         double mediaDasNotas = ((somaDasAvaliacoes / totalDeAvaliacoes));
         return mediaDasNotas;
+    }
+
+    @Override
+    public int compareTo(Titulo outroTitulo) {
+        return this.getNome().compareTo(outroTitulo.getNome());
+    }
+
+    @Override
+    public String toString() {
+        return
+                "Nome: " + nome + ", Lançamento: " + anoDeLancamento +  ", duração: " + duracaoEmMinutos + " mins";
     }
 }
