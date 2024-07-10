@@ -6,16 +6,16 @@ import Curso02.br.com.alura.screenmatch.modelos.Episodio;
 import Curso02.br.com.alura.screenmatch.modelos.Filme;
 import Curso02.br.com.alura.screenmatch.modelos.Serie;
 
+import java.util.ArrayList;
+
 
 public class Principal {
     public static void main(String[] args) {
-        Filme meuFilme = new Filme();
-        meuFilme.setNome("Matrix");
-        meuFilme.setAnoDeLancamento(1999);
+        Filme meuFilme = new Filme("Matrix", 1999, "Lana Wachowski e Lilly Wachowski");
         meuFilme.setIncluidoNoPlano(true);
         meuFilme.setDuracaoEmMinutos(136);
-        meuFilme.setDiretor("Lana Wachowski e Lilly Wachowski");
         System.out.println("Duração em minutos: " + meuFilme.getDuracaoEmMinutos());
+
 
         meuFilme.avaliaFilme(8);
         meuFilme.avaliaFilme(9);
@@ -23,15 +23,9 @@ public class Principal {
         meuFilme.avaliaFilme(7);
         System.out.println("Total de avaliações: " + meuFilme.getTotalDeAvaliacoes());
         meuFilme.exibeFichaTecnica();
+        System.out.println("\n");
 
-        System.out.println("""
-                
-                *********************************************************************
-                """);
-
-        Serie chuck = new Serie();
-        chuck.setNome("Chuck");
-        chuck.setAnoDeLancamento(2007);
+        Serie chuck = new Serie("Chuck", 2007);
         chuck.setIncluidoNoPlano(true);
         chuck.setMinutosPorEpisodio(40);
         chuck.setEpisodiosPorTemporada(18);
@@ -41,18 +35,18 @@ public class Principal {
         chuck.exibeFichaTecnica();
         System.out.println("Duração para maratonar Chuck: " + chuck.getDuracaoEmMinutos() + " Minutos");
 
+        System.out.println("\n");
 
         CalculadoraDeTempo calculo = new CalculadoraDeTempo();
         calculo.inclui(meuFilme);
 
         System.out.println("Tempo total: " + calculo.getTempoTotal() + " minutos o que totaliza " + (calculo.getTempoTotal()/60) + " horas" );
 
-        Filme meuFilme2 = new Filme();
-        meuFilme2.setNome("Matrix 2 Reloaded");
-        meuFilme2.setAnoDeLancamento(2003);
+        System.out.println("\n");
+
+        Filme meuFilme2 = new Filme("Matrix 2 Reloaded", 2003, "Lana Wachowski e Lilly Wachowski");
         meuFilme2.setIncluidoNoPlano(true);
         meuFilme2.setDuracaoEmMinutos(138);
-        meuFilme2.setDiretor("Lana Wachowski e Lilly Wachowski");
 
         calculo.inclui(meuFilme2);
         System.out.println("Tempo total: " + calculo.getTempoTotal() + " minutos o que totaliza " + (calculo.getTempoTotal()/60) + " horas" );
@@ -60,6 +54,7 @@ public class Principal {
         calculo.inclui(chuck);
         System.out.println("Tempo total: " + calculo.getTempoTotal() + " minutos o que totaliza " + (calculo.getTempoTotal()/60) + " horas" );
 
+        System.out.println("\n");
 
         FiltroRecomendacao filtro = new FiltroRecomendacao();
         filtro.filtra(meuFilme);
@@ -70,6 +65,26 @@ public class Principal {
         episodio.setSerie(chuck);
         episodio.setTotalVisualizacoes(100);
         filtro.filtra(episodio);
+
+        var meuFilme3 = new Filme("Matrix 3 Revolutions", 2003, "Lana Wachowski e Lilly Wachowski");
+        meuFilme3.setDuracaoEmMinutos(129);
+
+        meuFilme3.avaliaFilme(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(meuFilme2);
+        listaDeFilmes.add(meuFilme3);
+
+        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
+
+        System.out.println("toString do filme " + listaDeFilmes.get(0).toString());
+
+        System.out.println(listaDeFilmes);
+
+
+
 
     }
 }
